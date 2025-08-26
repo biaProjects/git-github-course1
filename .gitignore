@@ -5,4 +5,13 @@
 # /ignore/files/test*.txt
 
 # Ignorar todos os arquivos .txt em qualquer pasta
-*.txt
+# *.txt
+# **/*.txt
+
+# Ignorando todos os arquivos da pasta files
+# /ignore/files
+
+# Ignorando todo o conteúdo da pasta ignore
+# /ignore
+# ignore/*
+ignore/**
