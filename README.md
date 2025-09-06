@@ -12,6 +12,8 @@
 
 ---
 
+<br>
+
 ## 📚 About this Repository
 
 This repository was created by **[Beatriz Almeida](https://www.linkedin.com/in/bia-almeida-dev/)** as part of a hands-on learning journey with Git and GitHub.  
@@ -35,6 +37,8 @@ Feel free to explore, clone, and use this repository for your own learning purpo
 <br>
 
 ---
+
+<br>
 
 ## 🚀 Getting Started
 
