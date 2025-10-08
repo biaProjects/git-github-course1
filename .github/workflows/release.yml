@@ -27,7 +27,7 @@ jobs:
         id: versioning
         uses: paulhatch/semantic-version@v4.0.2
         with:
-          branch: master
+          branch: main
           tag_prefix: ''
           major_pattern: "BREAKING CHANGE:"
           minor_pattern: "feat:"
