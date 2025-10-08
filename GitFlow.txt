@@ -1,1 +1,2 @@
-Hi! I'm learning GitFlow!
+Hi, I'm learning GitFlow!
+And in my free time I like to play transverse flute!
