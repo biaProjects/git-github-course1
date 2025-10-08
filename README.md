@@ -2,7 +2,6 @@
   <img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" alt="Git logo" width="120" />
 </p>
 
-
 <h1 align="center">Git & GitHub Study Repository</h1>
 
 <p align="center">
