@@ -1,0 +1,19 @@
+name: Generate Release
+
+on: 
+  pull_request:
+    types: [opened, reopened]
+    
+  # push:
+  #   branches:
+  #     - main
+
+jobs:
+  Publish-release:
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: test
+        run: | 
+          ls -lha
+        shell: bash
