@@ -24,19 +24,21 @@ jobs:
       #   shell: bash
 
       - name: Semantic versioning
-        uses: paulhatch/semantic-version@v5.4.0
+        id: versioning
+        uses: paulhatch/semantic-version@v4.0.2
         with:
-          tag_prefix: ""
+          branch: master
+          tag_prefix: ''
           major_pattern: "BREAKING CHANGE:"
           minor_pattern: "feat:"
           patch_pattern: "fix:"
-          version_format: "${major}.${minor}.${patch}"
+          format: "${major}.${minor}.${patch}"
 
       - name: Create release
         if: ${{ !startsWith(github.ref, 'refs/tags/') }}
-        uses: marvinpinto/action-automatic-releases@v1.2.1
-        with: 
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          # title: ${{ steps.versioning.outputs.version }}
-          # automatic_release_tag: ${{ steps.versioning.outputs.version }}
+          title: ${{ steps.versioning.outputs.version }}
+          automatic_release_tag: ${{ steps.versioning.outputs.version }}
           prerelease: false
