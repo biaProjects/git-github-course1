@@ -2,7 +2,7 @@ name: Generate Release
 
 on: 
   pull_request:
-    types: [opened, reopened]
+    types: [opened, reopened, synchronize]
 
   # push:
   #   branches:
