@@ -31,10 +31,6 @@ jobs:
           version_format: "${major}.${minor}.${patch}"
           search_commit_body: true
 
-      - name: Release
-        uses: softprops/action-gh-release@v2
-        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
-
       # - name: Create release
       #   if: ${{ !startsWith(github.ref, 'refs/tags/') }}
       #   uses: "marvinpinto/action-automatic-releases@latest"
@@ -43,3 +39,13 @@ jobs:
       #     title: ${{ steps.versioning.outputs.version }}
       #     automatic_release_tag: ${{ steps.versioning.outputs.version }}
       #     prerelease: false
+
+      - name: Create release
+        if: ${{ steps.versioning.outputs.is_tagged == 'true' }}
+        uses: softprops/action-gh-release@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: ${{ steps.versioning.outputs.version }}
+          name: Release ${{ steps.versioning.outputs.version }}
+          generate_release_notes: true
+          prerelease: false
