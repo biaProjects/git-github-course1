@@ -41,11 +41,11 @@ jobs:
       #     prerelease: false
 
       - name: Create release
-        if: ${{ steps.versioning.outputs.is_tagged == 'true' }}
+        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
         uses: softprops/action-gh-release@v2.4.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag_name: ${{ steps.versioning.outputs.version }}
-          name: Release ${{ steps.versioning.outputs.version }}
+          name: ${{ steps.versioning.outputs.version }}
           generate_release_notes: true
           prerelease: false
