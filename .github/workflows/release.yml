@@ -31,11 +31,15 @@ jobs:
           version_format: "${major}.${minor}.${patch}"
           search_commit_body: true
 
-      - name: Create release
+      - name: Release
+        uses: softprops/action-gh-release@v2
         if: ${{ !startsWith(github.ref, 'refs/tags/') }}
-        uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          title: ${{ steps.versioning.outputs.version }}
-          automatic_release_tag: ${{ steps.versioning.outputs.version }}
-          prerelease: false
+
+      # - name: Create release
+      #   if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+      #   uses: "marvinpinto/action-automatic-releases@latest"
+      #   with:
+      #     repo_token: "${{ secrets.GITHUB_TOKEN }}"
+      #     title: ${{ steps.versioning.outputs.version }}
+      #     automatic_release_tag: ${{ steps.versioning.outputs.version }}
+      #     prerelease: false
