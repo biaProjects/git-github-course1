@@ -42,7 +42,7 @@ jobs:
 
       - name: Create release
         if: ${{ steps.versioning.outputs.is_tagged == 'true' }}
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2.4.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag_name: ${{ steps.versioning.outputs.version }}
