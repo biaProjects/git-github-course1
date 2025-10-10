@@ -1,11 +1,11 @@
 name: Generate Release
 
 on:
-  pull_request:
-    types: [opened, reopened, synchronize]
-  # push:
-  #   branches:
-  #     - main
+  # pull_request:
+  #   types: [opened, reopened, synchronize]
+  push:
+    branches:
+      - main
 
 jobs:
   Publish-release:
@@ -22,7 +22,7 @@ jobs:
         id: versioning
         uses: paulhatch/semantic-version@v5.4.0
         with:
-          # branch: main
+          branch: main
           tag_prefix: ''
           major_pattern: "BREAKING CHANGE:"
           minor_pattern: "feat:"
@@ -30,15 +30,6 @@ jobs:
           bump_each_commit_patch_pattern: "fix:"
           version_format: "${major}.${minor}.${patch}"
           search_commit_body: true
-
-      # - name: Create release
-      #   if: ${{ !startsWith(github.ref, 'refs/tags/') }}
-      #   uses: "marvinpinto/action-automatic-releases@latest"
-      #   with:
-      #     repo_token: "${{ secrets.GITHUB_TOKEN }}"
-      #     title: ${{ steps.versioning.outputs.version }}
-      #     automatic_release_tag: ${{ steps.versioning.outputs.version }}
-      #     prerelease: false
 
       - name: Create release
         if: ${{ !startsWith(github.ref, 'refs/tags/') }}
