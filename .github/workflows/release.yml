@@ -38,4 +38,3 @@ jobs:
           name: ${{ steps.versioning.outputs.version }}
           generate_release_notes: true
           prerelease: false
-
