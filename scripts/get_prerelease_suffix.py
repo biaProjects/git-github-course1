@@ -9,7 +9,7 @@ def set_prerelease_env():
     github_head_ref = os.getenv('NAME_BRANCH') 
 
     if not github_head_ref:
-        print("Erro: A variável de ambiente NAME_BRANCH não está definida no ambiente do Job.")
+        print("❌ Error: The environment variable 'NAME_BRANCH' is not defined in the Job environment.")
         return
 
     name_branch = github_head_ref.lower()
@@ -24,11 +24,11 @@ def set_prerelease_env():
         if env_file:
             with open(env_file, "a") as myfile:
                 myfile.write(f"PRERELEASE={prerelease_value}\n") 
-            print(f"Variável PRERELEASE definida com sucesso: {prerelease_value}")
+            print(f"✅ 'PRERELEASE' variable successfully defined: {prerelease_value}")
         else:
-            print("AVISO: Variável de ambiente GITHUB_ENV não encontrada. (Não executando em GitHub Actions?)")
+            print("⚠️ WARNING: Environment variable 'GITHUB_ENV' not found. (Not running in GitHub Actions?)")
     else:
-        print("Nenhum status de prerelease encontrado no nome do branch. Nenhuma variável definida.")
+        print("⛔ No prerelease status found in the branch name. No variables defined.")
 
 
 def main():
