@@ -27,10 +27,13 @@ jobs:
           name_branch = github_head_ref.lower()
           x = re.findall("alpha|beta|prerelease", name_branch)
           env_file = os.getenv('GITHUB_ENV')
-          print(env_file)
           with open(env_file, "a") as my_file:
             my_file.write("PRERELEASE=" + x[0])
         shell: python
+
+      - name: Display all environment variables
+        run: |
+          printenv
 
       - name: Semantic versioning
         id: versioning
