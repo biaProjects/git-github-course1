@@ -1,3 +1,6 @@
 Hi, I'm learning GitFlow!
 And in my free time I like to play transverse flute!
 Now I'm a new employee of Compre sua peça.
+Hello world!
+I love cars.
+I play in an orchestra.
