@@ -8,7 +8,6 @@
   <em>A personal repository created for learning and experimenting with Git and GitHub.</em>
 </p>
 
-
 ---
 
 <br>
